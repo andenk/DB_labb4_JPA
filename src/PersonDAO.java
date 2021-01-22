@@ -17,9 +17,9 @@ public interface PersonDAO {
 
     boolean updatePrice(int id, double newPrice);
     // set a new price for the product, return success/failure
-
-    boolean remove(int id);
+   */
+    boolean remove(String id);
     // removes the product, return success/failure
-    */
+
 
 }

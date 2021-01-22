@@ -8,44 +8,64 @@ public class PersonMain {
 
         System.out.println("------------------- LETs Start --------------------------");
         System.out.println("---------------------------------------------------------");
-
-        boolean flagg=true;
         int input;
 do {
     System.out.println(" Press " +
-            " 1 create "+ "\n" +" 2 select * "+ "\n" +" 3 Update "+ "\n" +" 4 Delete"+ "\n" +" 5 Exit" );
+            "\n" +  " 1 create "+ "\n" +" 2 select * "+ "\n" +" 3 Update "+ "\n" +" 4 Delete"+ "\n" +" 5 Exit" + "\n" +" 6 search UserName" );
     input = sc.nextInt();
     switch (input) {
         case 1:
-            createMain(pdao);
+            createMain();
             break;
         case 2:
-            // select *
+            //SelectAll();
 
             break;
         case 3:
             // update
             break;
         case 4:
-            // delete
+            removeMain();
             break;
         case 5:
             System.exit(0);
             break;
         case 6:
-            searchForUser(pdao);
+            searchForUser();
             break;
     }
-}while(flagg=true);
+}while(1==1);
 
+    }
+
+    private static void removeMain() {
+        System.out.println(" Remove ID?");
+        String removeID=sc.nextLine();
+        pdao.remove("990130-1619");
     }
 
     private static void searchForUser() {
-        System.out.println(pdao.getByUserName("SiHa"));
+        System.out.println("UserName?");
+        String inputUserName= sc.nextLine();
+        System.out.println(pdao.getByUserName(inputUserName));
     }
 
     private static void createMain() {
-        Person ppp = new Person("ID","user", "password", "firstName", "lastName","email","phone");
+        System.out.println("ID?");
+        String inputID= sc.nextLine();
+        System.out.println("UserName?");
+        String inputUserName= sc.nextLine();
+        System.out.println("Password?");
+        String inputPassword= sc.nextLine();
+        System.out.println("FirstName?");
+        String inputFirstName= sc.nextLine();
+        System.out.println("LastName?");
+        String inputLastName= sc.nextLine();
+        System.out.println("Email?");
+        String inputEmail= sc.nextLine();
+        System.out.println("Phone?");
+        String inputPhone= sc.nextLine();
+        Person ppp = new Person(inputID,inputUserName, inputPassword, inputFirstName, inputLastName,inputEmail,inputPhone);
         pdao.create(ppp);
     }
 }

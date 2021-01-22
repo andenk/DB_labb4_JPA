@@ -17,6 +17,22 @@ public class PersonDAOWithJPAImpl implements  PersonDAO{
         em.getTransaction().commit();
     }
 
+
+    @Override
+    public boolean remove(String id) {
+        boolean success = false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Person p = em.find(Person.class, id);
+        if (p != null ) {
+            em.remove(p);
+            success = true;
+        }
+        em.getTransaction().commit();
+        return success;
+
+    }
+
     @Override
     public List<Person> getByUserName(String UserName) {
         List<Person> list;
