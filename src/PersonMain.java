@@ -22,7 +22,7 @@ do {
             System.out.println(pdao.selectAll());
             break;
         case 3:
-            updateMain();
+            updateAlternative();
             break;
         case 4:
             removeMain();
@@ -38,13 +38,83 @@ do {
 
     }
 
-    private static void updateMain() {
+    private static void updateAlternative() {
+        int input;
+            System.out.println(" Update \n 1 password \n 2 userName \n 3 firstName \n 4 lastName  \n 5 Email \n 6 Phone");
+            input = sc.nextInt();
+            switch (input){
+              case 1:
+                  updatePassword();
+                  break;
+              case 2:
+                  updateUserName();
+                  break;
+              case 3:
+                  updateFirstName();
+                  break;
+              case 4:
+                  updateLastName();
+                  break;
+              case 5:
+                  updateEmail();
+                  break;
+              case 6:
+                  updatePhone();
+                  break;
+          }
+            
+    }
+
+    private static void updatePassword() {
+        System.out.print(" update on ID?");
+        String updateID= sc.next();
+        System.out.print(" new Password?");
+        String newPassword= sc.next();
+        pdao.updatePassword(updateID,newPassword);
+    }
+
+    private static void updateUserName() {
+        System.out.print(" update on ID?");
+        String updateID= sc.next();
+        System.out.print(" new UserName?");
+        String newUserName= sc.next();
+        pdao.updateUserName(updateID,newUserName);
+    }
+    private static void updateFirstName() {
+        System.out.print(" update on ID?");
+        String updateID= sc.next();
+        System.out.print(" new FirstName?");
+        String newFirstName= sc.next();
+        pdao.updateFirstName(updateID,newFirstName);
+    }
+
+    private static void updateLastName() {
+        System.out.print(" update on ID?");
+        String updateID= sc.next();
+        System.out.print(" new LastName?");
+        String newLastName= sc.next();
+        pdao.updateLastName(updateID,newLastName);
+    }
+    private static void updateEmail() {
         System.out.print(" update on ID?");
         String updateID= sc.next();
         System.out.print(" new Email?");
         String newEmail= sc.next();
         pdao.updateEmail(updateID,newEmail);
     }
+    private static void updatePhone() {
+        System.out.print(" update on ID?");
+        String updateID= sc.next();
+        System.out.print(" new Phone?");
+        String newPhone= sc.next();
+        pdao.updatePhone(updateID,newPhone);
+    }
+
+
+
+
+
+
 
     private static void removeMain() {
         System.out.print(" Remove ID?");

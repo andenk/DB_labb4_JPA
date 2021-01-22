@@ -55,6 +55,83 @@ public class PersonDAOWithJPAImpl implements  PersonDAO{
         return list;
     }
 
+    @Override
+    public boolean updateUserName(String updateID, String newUserName) {
+        boolean success = false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Person p = em.find(Person.class, updateID);
+        System.out.println(p);
+        if (p != null ) {
+            p.setUserName(newUserName);
+            success = true;
+        }
+        em.getTransaction().commit();
+        return success;
+    }
+
+    @Override
+    public boolean updateFirstName(String updateID, String newFirstName) {
+        boolean success = false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Person p = em.find(Person.class, updateID);
+        System.out.println(p);
+        if (p != null ) {
+            p.setFirstName(newFirstName);
+            success = true;
+        }
+        em.getTransaction().commit();
+        return success;
+    }
+
+    @Override
+    public boolean updateLastName(String updateID, String newLastName) {
+        boolean success = false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Person p = em.find(Person.class, updateID);
+        System.out.println(p);
+        if (p != null ) {
+            p.setLastName(newLastName);
+            success = true;
+        }
+        em.getTransaction().commit();
+        return success;
+    }
+
+    @Override
+    public boolean updatePhone(String updateID, String newPhone) {
+        boolean success = false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Person p = em.find(Person.class, updateID);
+        System.out.println(p);
+        if (p != null ) {
+            p.setPhone(newPhone);
+            success = true;
+        }
+        em.getTransaction().commit();
+        return success;
+    }
+
+    @Override
+    public boolean updatePassword(String updateID, String newPassword) {
+
+        boolean success = false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Person p = em.find(Person.class, updateID);
+        System.out.println(p);
+        if (p != null ) {
+            p.setPassword(newPassword);
+            success = true;
+        }
+        em.getTransaction().commit();
+        return success;
+
+    }
+
     public boolean updateEmail(String id, String newEmail) {
 
         boolean success = false;
