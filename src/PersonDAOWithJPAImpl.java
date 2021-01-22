@@ -43,4 +43,30 @@ public class PersonDAOWithJPAImpl implements  PersonDAO{
         em.getTransaction().commit();
         return list;
     }
+
+    @Override
+    public List<Person> selectAll() {
+        List<Person> list;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        list = em.createQuery("FROM Person c", Person.class).getResultList();
+
+        em.getTransaction().commit();
+        return list;
+    }
+
+    public boolean updateEmail(String id, String newEmail) {
+
+        boolean success = false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Person p = em.find(Person.class, id);
+        System.out.println(p);
+        if (p != null ) {
+            p.setEmail(newEmail);
+            success = true;
+        }
+        em.getTransaction().commit();
+        return success;
+    }
 }

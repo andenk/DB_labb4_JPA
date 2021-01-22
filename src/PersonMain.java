@@ -18,11 +18,11 @@ do {
             createMain();
             break;
         case 2:
-            //SelectAll();
 
+            System.out.println(pdao.selectAll());
             break;
         case 3:
-            // update
+            updateMain();
             break;
         case 4:
             removeMain();
@@ -38,10 +38,18 @@ do {
 
     }
 
+    private static void updateMain() {
+        System.out.print(" update on ID?");
+        String updateID= sc.next();
+        System.out.print(" new Email?");
+        String newEmail= sc.next();
+        pdao.updateEmail(updateID,newEmail);
+    }
+
     private static void removeMain() {
-        System.out.println(" Remove ID?");
-        String removeID=sc.nextLine();
-        pdao.remove("990130-1619");
+        System.out.print(" Remove ID?");
+        String removeID= sc.next();
+        pdao.remove(removeID);
     }
 
     private static void searchForUser() {
@@ -52,19 +60,19 @@ do {
 
     private static void createMain() {
         System.out.println("ID?");
-        String inputID= sc.nextLine();
+        String inputID= sc.next();
         System.out.println("UserName?");
-        String inputUserName= sc.nextLine();
+        String inputUserName= sc.next();
         System.out.println("Password?");
-        String inputPassword= sc.nextLine();
+        String inputPassword= sc.next();
         System.out.println("FirstName?");
-        String inputFirstName= sc.nextLine();
+        String inputFirstName= sc.next();
         System.out.println("LastName?");
-        String inputLastName= sc.nextLine();
+        String inputLastName= sc.next();
         System.out.println("Email?");
-        String inputEmail= sc.nextLine();
+        String inputEmail= sc.next();
         System.out.println("Phone?");
-        String inputPhone= sc.nextLine();
+        String inputPhone= sc.next();
         Person ppp = new Person(inputID,inputUserName, inputPassword, inputFirstName, inputLastName,inputEmail,inputPhone);
         pdao.create(ppp);
     }
