@@ -5,9 +5,10 @@ public class PersonMain {
 
         System.out.println("------------------- LETs Start --------------------------");
         System.out.println("---------------------------------------------------------");
-        Person ppp = new Person("ID","userName", "password", "firstName", "lastName","email","phone");
+        Person ppp = new Person("ID","user", "password", "firstName", "lastName","email","phone");
 
-      //  pdao.create(ppp);
+        
+        pdao.create(ppp);
 
 
         System.out.println(pdao.getByUserName("SiHa"));

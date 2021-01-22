@@ -10,6 +10,7 @@ public class PersonDAOWithJPAImpl implements  PersonDAO{
 
     @Override
     public void create(Person p) {
+        System.out.println(p);
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(p);
